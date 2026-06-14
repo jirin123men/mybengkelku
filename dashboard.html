@@ -222,7 +222,6 @@ background:#f59e0b;
 <div class="content">
 
 <div class="welcome">
-
 <h1>Selamat Datang di MyBengkelKu</h1>
 
 <p>
@@ -237,25 +236,25 @@ transaksi, dan laporan bengkel dalam satu aplikasi.
 <div class="card">
 <i class="fas fa-users"></i>
 <h4>Total Pelanggan</h4>
-<h2>125</h2>
+<h2 id="totalPelanggan">0</h2>
 </div>
 
 <div class="card">
 <i class="fas fa-car"></i>
 <h4>Total Kendaraan</h4>
-<h2>98</h2>
+<h2 id="totalKendaraan">0</h2>
 </div>
 
 <div class="card">
 <i class="fas fa-tools"></i>
 <h4>Total Servis</h4>
-<h2>350</h2>
+<h2 id="totalServis">0</h2>
 </div>
 
 <div class="card">
 <i class="fas fa-money-bill-wave"></i>
-<h4>Pendapatan</h4>
-<h2>Rp45JT</h2>
+<h4>Total Pendapatan</h4>
+<h2 id="totalPendapatan">Rp 0</h2>
 </div>
 
 </div>
@@ -283,34 +282,12 @@ transaksi, dan laporan bengkel dalam satu aplikasi.
 <tbody>
 
 <tr>
-<td>14/06/2026</td>
-<td>Budi Santoso</td>
-<td>Honda Brio</td>
-<td>
-<span class="status selesai">
-Selesai
-</span>
-</td>
-</tr>
-
-<tr>
-<td>14/06/2026</td>
-<td>Andi Wijaya</td>
-<td>Yamaha NMAX</td>
+<td>Hari Ini</td>
+<td>Data dari Firebase</td>
+<td>-</td>
 <td>
 <span class="status proses">
 Proses
-</span>
-</td>
-</tr>
-
-<tr>
-<td>13/06/2026</td>
-<td>Rudi Hartono</td>
-<td>Toyota Avanza</td>
-<td>
-<span class="status selesai">
-Selesai
 </span>
 </td>
 </tr>
@@ -332,7 +309,7 @@ Selesai
 
 <p>
 Paket Saat Ini :
-<strong>Trial 2 Hari</strong>
+<strong>Trial</strong>
 </p>
 
 <br>
@@ -342,16 +319,7 @@ Sisa Masa Aktif :
 <strong>2 Hari</strong>
 </p>
 
-<br>
-
-<a href="langganan.html"
-style="
-background:#2563eb;
-color:white;
-padding:12px 20px;
-border-radius:10px;
-text-decoration:none;
-display:inline-block;">
+<a href="langganan.html" class="upgrade-btn">
 Upgrade ke Pro
 </a>
 
@@ -360,6 +328,8 @@ Upgrade ke Pro
 </div>
 
 </div>
+
+<script type="module" src="js/dashboard.js"></script>
 
 </body>
 </html>
