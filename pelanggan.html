@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Data Pelanggan - MyBengkelKu</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#f1f5f9;
+}
+
+.header{
+background:#0f172a;
+color:white;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.container{
+padding:25px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+margin-bottom:20px;
+}
+
+.title{
+font-size:24px;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+.form-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+input,
+textarea{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+}
+
+textarea{
+height:90px;
+resize:none;
+}
+
+.btn{
+background:#2563eb;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.btn:hover{
+background:#1d4ed8;
+}
+
+.table-responsive{
+overflow-x:auto;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+table th{
+background:#2563eb;
+color:white;
+padding:12px;
+}
+
+table td{
+padding:12px;
+border-bottom:1px solid #ddd;
+}
+
+.action-btn{
+padding:8px 12px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+color:white;
+}
+
+.edit{
+background:#f59e0b;
+}
+
+.delete{
+background:#dc2626;
+}
+
+.search{
+margin-bottom:20px;
+}
+
+.search input{
+width:100%;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="header">
+
+<h2>
+<i class="fas fa-users"></i>
+ Data Pelanggan
+</h2>
+
+<a href="dashboard.html" style="color:white;text-decoration:none;">
+<i class="fas fa-arrow-left"></i>
+ Dashboard
+</a>
+
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<div class="title">
+Tambah Pelanggan
+</div>
+
+<div class="form-grid">
+
+<input type="text" id="nama" placeholder="Nama Pelanggan">
+
+<input type="text" id="telepon" placeholder="Nomor Telepon">
+
+<input type="email" id="email" placeholder="Email">
+
+</div>
+
+<br>
+
+<textarea id="alamat" placeholder="Alamat"></textarea>
+
+<br><br>
+
+<button class="btn" onclick="tambahPelanggan()">
+<i class="fas fa-plus"></i>
+ Simpan Pelanggan
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="search">
+<input
+type="text"
+id="cari"
+placeholder="Cari pelanggan..."
+onkeyup="cariPelanggan()">
+</div>
+
+<div class="table-responsive">
+
+<table id="tabelPelanggan">
+
+<thead>
+
+<tr>
+<th>No</th>
+<th>Nama</th>
+<th>Telepon</th>
+<th>Email</th>
+<th>Alamat</th>
+<th>Aksi</th>
+</tr>
+
+</thead>
+
+<tbody id="dataPelanggan">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let pelanggan = [];
+
+function tambahPelanggan(){
+
+const nama =
+document.getElementById("nama").value;
+
+const telepon =
+document.getElementById("telepon").value;
+
+const email =
+document.getElementById("email").value;
+
+const alamat =
+document.getElementById("alamat").value;
+
+if(nama===""){
+alert("Nama pelanggan wajib diisi");
+return;
+}
+
+pelanggan.push({
+nama,
+telepon,
+email,
+alamat
+});
+
+tampilkanPelanggan();
+
+document.getElementById("nama").value="";
+document.getElementById("telepon").value="";
+document.getElementById("email").value="";
+document.getElementById("alamat").value="";
+
+}
+
+function tampilkanPelanggan(){
+
+let html="";
+
+pelanggan.forEach((p,index)=>{
+
+html += `
+<tr>
+<td>${index+1}</td>
+<td>${p.nama}</td>
+<td>${p.telepon}</td>
+<td>${p.email}</td>
+<td>${p.alamat}</td>
+
+<td>
+
+<button
+class="action-btn delete"
+onclick="hapusPelanggan(${index})">
+
+<i class="fas fa-trash"></i>
+
+</button>
+
+</td>
+
+</tr>
+`;
+
+});
+
+document.getElementById("dataPelanggan").innerHTML=html;
+
+}
+
+function hapusPelanggan(index){
+
+if(confirm("Hapus pelanggan?")){
+
+pelanggan.splice(index,1);
+
+tampilkanPelanggan();
+
+}
+
+}
+
+function cariPelanggan(){
+
+const keyword =
+document.getElementById("cari")
+.value
+.toLowerCase();
+
+const rows =
+document.querySelectorAll(
+"#dataPelanggan tr"
+);
+
+rows.forEach(row=>{
+
+const text =
+row.innerText.toLowerCase();
+
+row.style.display =
+text.includes(keyword)
+? ""
+: "none";
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
