@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kendaraan - MyBengkelKu</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+display:flex;
+background:#f1f5f9;
+}
+
+.sidebar{
+width:260px;
+height:100vh;
+background:#0f172a;
+position:fixed;
+left:0;
+top:0;
+}
+
+.logo{
+padding:25px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+color:white;
+border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.menu{
+padding:15px;
+}
+
+.menu a{
+display:block;
+padding:14px;
+margin-bottom:8px;
+text-decoration:none;
+color:white;
+border-radius:10px;
+transition:.3s;
+}
+
+.menu a:hover,
+.menu a.active{
+background:#2563eb;
+}
+
+.main{
+margin-left:260px;
+width:100%;
+}
+
+.topbar{
+background:white;
+padding:20px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.content{
+padding:25px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 3px 15px rgba(0,0,0,.08);
+margin-bottom:20px;
+}
+
+.form-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+input,
+select{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+}
+
+.btn{
+background:#2563eb;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.btn:hover{
+background:#1d4ed8;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+table th{
+background:#2563eb;
+color:white;
+padding:12px;
+}
+
+table td{
+padding:12px;
+border-bottom:1px solid #ddd;
+}
+
+.badge{
+padding:5px 10px;
+border-radius:20px;
+font-size:12px;
+color:white;
+}
+
+.motor{
+background:#22c55e;
+}
+
+.mobil{
+background:#f59e0b;
+}
+
+.hapus{
+background:#ef4444;
+padding:8px 10px;
+border:none;
+border-radius:8px;
+color:white;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+🚗 MyBengkelKu
+</div>
+
+<div class="menu">
+
+<a href="dashboard.html">
+<i class="fas fa-home"></i>
+ Dashboard
+</a>
+
+<a href="pelanggan.html">
+<i class="fas fa-users"></i>
+ Pelanggan
+</a>
+
+<a href="kendaraan.html" class="active">
+<i class="fas fa-car"></i>
+ Kendaraan
+</a>
+
+<a href="servis.html">
+<i class="fas fa-tools"></i>
+ Servis
+</a>
+
+<a href="sparepart.html">
+<i class="fas fa-boxes"></i>
+ Sparepart
+</a>
+
+<a href="transaksi.html">
+<i class="fas fa-cash-register"></i>
+ Transaksi
+</a>
+
+<a href="laporan.html">
+<i class="fas fa-chart-line"></i>
+ Laporan
+</a>
+
+<a href="langganan.html">
+<i class="fas fa-crown"></i>
+ Langganan
+</a>
+
+</div>
+
+</div>
+
+<div class="main">
+
+<div class="topbar">
+
+<h2>🚗 Data Kendaraan</h2>
+
+<div>
+👤 Admin Bengkel
+</div>
+
+</div>
+
+<div class="content">
+
+<div class="card">
+
+<h3>Tambah Kendaraan</h3>
+
+<br>
+
+<div class="form-grid">
+
+<input type="text"
+id="pemilik"
+placeholder="Nama Pemilik">
+
+<input type="text"
+id="nopol"
+placeholder="Nomor Polisi">
+
+<input type="text"
+id="merk"
+placeholder="Merk Kendaraan">
+
+<input type="text"
+id="tipe"
+placeholder="Tipe Kendaraan">
+
+<select id="jenis">
+<option value="Motor">Motor</option>
+<option value="Mobil">Mobil</option>
+</select>
+
+</div>
+
+<br>
+
+<button class="btn" onclick="tambahKendaraan()">
+<i class="fas fa-plus"></i>
+ Tambah Kendaraan
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>Daftar Kendaraan</h3>
+
+<br>
+
+<table>
+
+<thead>
+<tr>
+<th>No</th>
+<th>Pemilik</th>
+<th>No Polisi</th>
+<th>Merk</th>
+<th>Tipe</th>
+<th>Jenis</th>
+<th>Aksi</th>
+</tr>
+</thead>
+
+<tbody id="dataKendaraan">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let kendaraan=[];
+
+function tambahKendaraan(){
+
+const pemilik=
+document.getElementById("pemilik").value;
+
+const nopol=
+document.getElementById("nopol").value;
+
+const merk=
+document.getElementById("merk").value;
+
+const tipe=
+document.getElementById("tipe").value;
+
+const jenis=
+document.getElementById("jenis").value;
+
+if(pemilik===""){
+alert("Nama pemilik wajib diisi");
+return;
+}
+
+kendaraan.push({
+pemilik,
+nopol,
+merk,
+tipe,
+jenis
+});
+
+tampilkanKendaraan();
+
+document.getElementById("pemilik").value="";
+document.getElementById("nopol").value="";
+document.getElementById("merk").value="";
+document.getElementById("tipe").value="";
+
+}
+
+function tampilkanKendaraan(){
+
+let html="";
+
+kendaraan.forEach((item,index)=>{
+
+html+=`
+<tr>
+
+<td>${index+1}</td>
+
+<td>${item.pemilik}</td>
+
+<td>${item.nopol}</td>
+
+<td>${item.merk}</td>
+
+<td>${item.tipe}</td>
+
+<td>
+<span class="badge ${item.jenis==='Motor'?'motor':'mobil'}">
+${item.jenis}
+</span>
+</td>
+
+<td>
+<button
+class="hapus"
+onclick="hapusKendaraan(${index})">
+
+<i class="fas fa-trash"></i>
+
+</button>
+</td>
+
+</tr>
+`;
+
+});
+
+document.getElementById("dataKendaraan").innerHTML=html;
+
+}
+
+function hapusKendaraan(index){
+
+if(confirm("Hapus kendaraan ini?")){
+
+kendaraan.splice(index,1);
+
+tampilkanKendaraan();
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
