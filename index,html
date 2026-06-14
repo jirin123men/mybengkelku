@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MyBengkelKu - Sistem Manajemen Bengkel Online</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#f8fafc;
+color:#333;
+}
+
+header{
+background:linear-gradient(135deg,#0f172a,#2563eb);
+color:white;
+padding:20px 8%;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:30px;
+font-weight:bold;
+}
+
+.logo span{
+color:#38bdf8;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-weight:500;
+}
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:100px 8%;
+flex-wrap:wrap;
+}
+
+.hero-text{
+max-width:600px;
+}
+
+.hero-text h1{
+font-size:55px;
+margin-bottom:20px;
+line-height:1.2;
+}
+
+.hero-text p{
+font-size:20px;
+margin-bottom:30px;
+opacity:.9;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+margin-right:10px;
+transition:.3s;
+}
+
+.btn-primary{
+background:#22c55e;
+color:white;
+}
+
+.btn-secondary{
+background:white;
+color:#2563eb;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.hero-image{
+font-size:220px;
+opacity:.9;
+}
+
+.stats{
+padding:60px 8%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.stat{
+background:white;
+padding:30px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.stat h2{
+font-size:40px;
+color:#2563eb;
+}
+
+.section{
+padding:80px 8%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h2{
+font-size:40px;
+color:#0f172a;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.feature{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.feature:hover{
+transform:translateY(-5px);
+}
+
+.feature i{
+font-size:50px;
+color:#2563eb;
+margin-bottom:20px;
+}
+
+.feature h3{
+margin-bottom:10px;
+}
+
+.pricing{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.price-card{
+background:white;
+padding:40px;
+width:320px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.featured{
+background:#2563eb;
+color:white;
+transform:scale(1.05);
+}
+
+.price-card h2{
+font-size:50px;
+margin:20px 0;
+}
+
+.price-card ul{
+list-style:none;
+margin:20px 0;
+}
+
+.price-card ul li{
+padding:8px;
+}
+
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.testimonial{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.faq{
+max-width:900px;
+margin:auto;
+}
+
+details{
+background:white;
+padding:20px;
+margin-bottom:15px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:40px;
+margin-top:50px;
+}
+
+footer p{
+margin-top:10px;
+opacity:.8;
+}
+
+@media(max-width:768px){
+
+.hero{
+text-align:center;
+}
+
+.hero-text h1{
+font-size:38px;
+}
+
+.hero-image{
+font-size:120px;
+margin-top:30px;
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+🚗 My<span>BengkelKu</span>
+</div>
+
+<div class="nav-links">
+<a href="#fitur">Fitur</a>
+<a href="#harga">Harga</a>
+<a href="login.html">Login</a>
+</div>
+
+</div>
+
+<div class="hero">
+
+<div class="hero-text">
+
+<h1>
+Kelola Bengkel Lebih Mudah dan Profesional
+</h1>
+
+<p>
+Aplikasi manajemen bengkel online untuk pelanggan,
+servis kendaraan, sparepart, kasir, dan laporan.
+Semua data tersimpan aman di cloud.
+</p>
+
+<a href="register.html" class="btn btn-primary">
+<i class="fas fa-rocket"></i>
+ Coba Gratis 2 Hari
+</a>
+
+<a href="login.html" class="btn btn-secondary">
+<i class="fas fa-sign-in-alt"></i>
+ Login
+</a>
+
+</div>
+
+<div class="hero-image">
+🔧
+</div>
+
+</div>
+
+</header>
+
+<section class="stats">
+
+<div class="stat">
+<h2>1000+</h2>
+<p>Bengkel Bergabung</p>
+</div>
+
+<div class="stat">
+<h2>50.000+</h2>
+<p>Transaksi Tercatat</p>
+</div>
+
+<div class="stat">
+<h2>99.9%</h2>
+<p>Server Uptime</p>
+</div>
+
+<div class="stat">
+<h2>24/7</h2>
+<p>Akses Online</p>
+</div>
+
+</section>
+
+<section class="section" id="fitur">
+
+<div class="section-title">
+<h2>Fitur Lengkap</h2>
+</div>
+
+<div class="features">
+
+<div class="feature">
+<i class="fas fa-users"></i>
+<h3>Data Pelanggan</h3>
+<p>Kelola seluruh pelanggan secara online dan aman.</p>
+</div>
+
+<div class="feature">
+<i class="fas fa-tools"></i>
+<h3>Servis Kendaraan</h3>
+<p>Riwayat servis kendaraan tersimpan otomatis.</p>
+</div>
+
+<div class="feature">
+<i class="fas fa-boxes"></i>
+<h3>Sparepart</h3>
+<p>Pantau stok sparepart secara real-time.</p>
+</div>
+
+<div class="feature">
+<i class="fas fa-cash-register"></i>
+<h3>Kasir</h3>
+<p>Transaksi cepat dengan invoice profesional.</p>
+</div>
+
+<div class="feature">
+<i class="fas fa-chart-line"></i>
+<h3>Laporan</h3>
+<p>Laporan harian, mingguan, dan bulanan otomatis.</p>
+</div>
+
+<div class="feature">
+<i class="fas fa-cloud"></i>
+<h3>Cloud Database</h3>
+<p>Data tersimpan aman dan dapat diakses kapan saja.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="harga">
+
+<div class="section-title">
+<h2>Paket Langganan</h2>
+</div>
+
+<div class="pricing">
+
+<div class="price-card">
+
+<h3>TRIAL</h3>
+
+<h2>Gratis</h2>
+
+<p>2 Hari</p>
+
+<ul>
+<li>✅ Semua Fitur</li>
+<li>✅ Database Online</li>
+<li>✅ Support Dasar</li>
+</ul>
+
+<a href="register.html" class="btn btn-primary">
+Mulai Trial
+</a>
+
+</div>
+
+<div class="price-card featured">
+
+<h3>PRO</h3>
+
+<h2>25K</h2>
+
+<p>/ Bulan</p>
+
+<ul>
+<li>✅ Semua Fitur Premium</li>
+<li>✅ Multi Device</li>
+<li>✅ Cloud Database</li>
+<li>✅ Prioritas Support</li>
+</ul>
+
+<a href="register.html" class="btn btn-secondary">
+Berlangganan
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-title">
+<h2>Testimoni Pengguna</h2>
+</div>
+
+<div class="testimonials">
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<br><br>
+"MyBengkelKu membuat pencatatan servis menjadi jauh lebih mudah dan rapi."
+<br><br>
+<b>– Bengkel Jaya Motor</b>
+</div>
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<br><br>
+"Transaksi dan laporan kini bisa dipantau langsung dari HP."
+<br><br>
+<b>– Maju Service Center</b>
+</div>
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<br><br>
+"Stok sparepart lebih terkontrol dan tidak lagi berantakan."
+<br><br>
+<b>– Auto Garage</b>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-title">
+<h2>Pertanyaan Umum</h2>
+</div>
+
+<div class="faq">
+
+<details>
+<summary>Apakah ada masa trial?</summary>
+<p>Ya, setiap akun mendapatkan trial gratis selama 2 hari.</p>
+</details>
+
+<details>
+<summary>Apakah data tersimpan online?</summary>
+<p>Ya, data tersimpan pada database cloud yang aman.</p>
+</details>
+
+<details>
+<summary>Bisa dibuka dari HP?</summary>
+<p>Bisa. MyBengkelKu mendukung Android, iPhone, Tablet dan PC.</p>
+</details>
+
+<details>
+<summary>Apakah email bisa digunakan lebih dari sekali?</summary>
+<p>Tidak. Satu email hanya dapat digunakan untuk satu akun.</p>
+</details>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>🚗 MyBengkelKu</h2>
+
+<p>
+Solusi Digital untuk Bengkel Modern
+</p>
+
+<p>
+© 2026 MyBengkelKu. All Rights Reserved.
+</p>
+
+</footer>
+
+</body>
+</html>
