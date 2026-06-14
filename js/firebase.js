@@ -5,19 +5,12 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 const firebaseConfig = {
-
-  apiKey: "ISI_API_KEY",
-
-  authDomain: "ISI_PROJECT.firebaseapp.com",
-
-  projectId: "ISI_PROJECT_ID",
-
-  storageBucket: "ISI_PROJECT.appspot.com",
-
-  messagingSenderId: "ISI_ID",
-
-  appId: "ISI_APP_ID"
-
+  apiKey: "AIzaSyBibUYRx-eti666t0P5B4xpgSU7WyRQPZ4",
+  authDomain: "mybengkelku.firebaseapp.com",
+  projectId: "mybengkelku",
+  storageBucket: "mybengkelku.firebasestorage.app",
+  messagingSenderId: "1041434407055",
+  appId: "1:1041434407055:web:008ee7323d84ae70cf00fa"
 };
 
 const app = initializeApp(firebaseConfig);
