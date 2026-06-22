@@ -9,318 +9,47 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-}
-
-body{
-display:flex;
-background:#f1f5f9;
-}
-
-.sidebar{
-width:260px;
-height:100vh;
-background:#0f172a;
-position:fixed;
-overflow-y:auto;
-}
-
-.logo{
-padding:25px;
-text-align:center;
-font-size:24px;
-font-weight:bold;
-color:white;
-border-bottom:1px solid rgba(255,255,255,.1);
-}
-
-.menu{
-padding:15px;
-}
-
-.menu a{
-display:block;
-padding:14px;
-margin-bottom:8px;
-color:white;
-text-decoration:none;
-border-radius:10px;
-transition:.3s;
-}
-
-.menu a:hover,
-.menu a.active{
-background:#2563eb;
-}
-
-.main{
-margin-left:260px;
-width:100%;
-}
-
-.topbar{
-background:white;
-padding:20px 30px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,.08);
-}
-
-.content{
-padding:25px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-margin-bottom:25px;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 3px 15px rgba(0,0,0,.08);
-}
-
-.card i{
-font-size:35px;
-color:#2563eb;
-margin-bottom:10px;
-}
-
-.card h2{
-margin-top:10px;
-font-size:32px;
-}
-
-.report-box{
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 3px 15px rgba(0,0,0,.08);
-margin-bottom:20px;
-}
-
-.form-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-margin-top:15px;
-}
-
-input,
-textarea{
-width:100%;
-padding:12px;
-border:1px solid #ddd;
-border-radius:10px;
-}
-
-textarea{
-height:100px;
-resize:none;
-margin-top:15px;
-}
-
-.btn{
-background:#2563eb;
-color:white;
-border:none;
-padding:12px 20px;
-border-radius:10px;
-cursor:pointer;
-}
-
-.btn:hover{
-background:#1d4ed8;
-}
-
-.search{
-margin:15px 0;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:10px;
-}
-
-table th{
-background:#2563eb;
-color:white;
-padding:12px;
-}
-
-table td{
-padding:12px;
-border-bottom:1px solid #ddd;
-}
-
-.edit{
-background:#f59e0b;
-color:white;
-border:none;
-padding:8px 10px;
-border-radius:8px;
-cursor:pointer;
-}
-
-.hapus{
-background:#ef4444;
-color:white;
-border:none;
-padding:8px 10px;
-border-radius:8px;
-cursor:pointer;
-}
-
+body{font-family:Segoe UI,sans-serif;background:#f1f5f9;margin:0}
+.main{padding:20px}
+.report-box{background:#fff;padding:20px;border-radius:10px;margin-bottom:20px}
+input,textarea{width:100%;padding:10px;margin-top:10px;border:1px solid #ddd;border-radius:8px}
+.btn{background:#2563eb;color:#fff;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;margin-top:10px}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{padding:10px;border-bottom:1px solid #ddd}
+th{background:#2563eb;color:#fff}
 </style>
 
 </head>
 <body>
 
-<div class="sidebar">
-
-<div class="logo">
-🚗 MyBengkelKu
-</div>
-
-<div class="menu">
-
-<a href="dashboard.html">
-<i class="fas fa-home"></i> Dashboard
-</a>
-
-<a href="pelanggan.html" class="active">
-<i class="fas fa-users"></i> Pelanggan
-</a>
-
-<a href="kendaraan.html">
-<i class="fas fa-car"></i> Kendaraan
-</a>
-
-<a href="servis.html">
-<i class="fas fa-tools"></i> Servis
-</a>
-
-<a href="sparepart.html">
-<i class="fas fa-boxes"></i> Sparepart
-</a>
-
-<a href="transaksi.html">
-<i class="fas fa-cash-register"></i> Transaksi
-</a>
-
-<a href="laporan.html">
-<i class="fas fa-chart-line"></i> Laporan
-</a>
-
-<a href="langganan.html">
-<i class="fas fa-crown"></i> Langganan
-</a>
-
-</div>
-
-</div>
-
 <div class="main">
-
-<div class="topbar">
 
 <h2>👥 Data Pelanggan</h2>
 
-<div>
-👤 Admin Bengkel
-</div>
-
-</div>
-
-<div class="content">
-
-<!-- Statistik -->
-
-<div class="cards">
-
-<div class="card">
-<i class="fas fa-users"></i>
-<h4>Total Pelanggan</h4>
-<h2 id="totalPelanggan">0</h2>
-</div>
-
-<div class="card">
-<i class="fas fa-user-check"></i>
-<h4>Pelanggan Aktif</h4>
-<h2 id="pelangganAktif">0</h2>
-</div>
-
-<div class="card">
-<i class="fas fa-user-plus"></i>
-<h4>Pelanggan Baru</h4>
-<h2 id="pelangganBaru">0</h2>
-</div>
-
-</div>
-
-<!-- Form -->
-
+<!-- FORM -->
 <div class="report-box">
 
-<h3>
-<i class="fas fa-user-plus"></i>
- Tambah Pelanggan
-</h3>
+<h3>Tambah Pelanggan</h3>
 
-<div class="form-grid">
-
-<input type="text" id="nama" placeholder="Nama Pelanggan">
-
-<input type="text" id="telepon" placeholder="Nomor WhatsApp">
-
+<input type="text" id="nama" placeholder="Nama">
+<input type="text" id="telepon" placeholder="WhatsApp">
 <input type="email" id="email" placeholder="Email">
-
 <input type="text" id="kendaraan" placeholder="Kendaraan">
-
-</div>
-
-<textarea id="alamat" placeholder="Alamat Lengkap"></textarea>
-
-<br><br>
+<textarea id="alamat" placeholder="Alamat"></textarea>
 
 <button class="btn" onclick="tambahPelanggan()">
-<i class="fas fa-save"></i>
- Simpan Pelanggan
+Simpan
 </button>
 
 </div>
 
-<!-- Tabel -->
-
+<!-- TABLE -->
 <div class="report-box">
 
-<h3>
-<i class="fas fa-table"></i>
- Data Pelanggan
-</h3>
-
-<input
-type="text"
-id="search"
-class="search"
-placeholder="Cari pelanggan..."
-onkeyup="cariPelanggan()">
+<h3>Data Pelanggan</h3>
 
 <table>
-
 <thead>
-
 <tr>
 <th>No</th>
 <th>Nama</th>
@@ -329,12 +58,9 @@ onkeyup="cariPelanggan()">
 <th>Kendaraan</th>
 <th>Aksi</th>
 </tr>
-
 </thead>
 
-<tbody id="tbodyPelanggan">
-
-</tbody>
+<tbody id="tbodyPelanggan"></tbody>
 
 </table>
 
@@ -342,115 +68,95 @@ onkeyup="cariPelanggan()">
 
 </div>
 
-</div>
+<script type="module">
+import { db } from "./firebase.js";
 
-<script>
+import {
+  collection,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-let pelanggan=[];
+async function tambahPelanggan() {
 
-function tambahPelanggan(){
+  const nama = document.getElementById("nama").value;
+  const telepon = document.getElementById("telepon").value;
+  const email = document.getElementById("email").value;
+  const kendaraan = document.getElementById("kendaraan").value;
+  const alamat = document.getElementById("alamat").value;
 
-const nama=document.getElementById("nama").value;
-const telepon=document.getElementById("telepon").value;
-const email=document.getElementById("email").value;
-const kendaraan=document.getElementById("kendaraan").value;
-const alamat=document.getElementById("alamat").value;
+  if (!nama) {
+    alert("Nama wajib diisi");
+    return;
+  }
 
-if(nama===""){
-alert("Nama pelanggan wajib diisi");
-return;
+  await addDoc(collection(db, "pelanggan"), {
+    nama,
+    telepon,
+    email,
+    kendaraan,
+    alamat,
+    createdAt: new Date()
+  });
+
+  alert("Berhasil disimpan ke Firebase");
+
+  clearForm();
+  loadPelanggan();
 }
 
-pelanggan.push({
-nama,
-telepon,
-email,
-kendaraan,
-alamat
-});
-
-renderPelanggan();
-
-document.getElementById("nama").value="";
-document.getElementById("telepon").value="";
-document.getElementById("email").value="";
-document.getElementById("kendaraan").value="";
-document.getElementById("alamat").value="";
-
+function clearForm() {
+  nama.value = "";
+  telepon.value = "";
+  email.value = "";
+  kendaraan.value = "";
+  alamat.value = "";
 }
 
-function renderPelanggan(){
+async function loadPelanggan() {
 
-let html="";
+  const snap = await getDocs(collection(db, "pelanggan"));
 
-pelanggan.forEach((item,index)=>{
+  const tbody = document.getElementById("tbodyPelanggan");
+  tbody.innerHTML = "";
 
-html += `
-<tr>
+  let no = 1;
 
-<td>${index+1}</td>
+  snap.forEach((d) => {
 
-<td>${item.nama}</td>
+    let data = d.data();
 
-<td>${item.telepon}</td>
-
-<td>${item.email}</td>
-
-<td>${item.kendaraan}</td>
-
-<td>
-
-<button class="edit">
-<i class="fas fa-edit"></i>
-</button>
-
-<button class="hapus" onclick="hapusPelanggan(${index})">
-<i class="fas fa-trash"></i>
-</button>
-
-</td>
-
-</tr>
-`;
-
-});
-
-document.getElementById("tbodyPelanggan").innerHTML=html;
-
-document.getElementById("totalPelanggan").innerHTML=pelanggan.length;
-document.getElementById("pelangganAktif").innerHTML=pelanggan.length;
-document.getElementById("pelangganBaru").innerHTML=pelanggan.length;
+    tbody.innerHTML += `
+      <tr>
+        <td>${no++}</td>
+        <td>${data.nama}</td>
+        <td>${data.telepon}</td>
+        <td>${data.email}</td>
+        <td>${data.kendaraan}</td>
+        <td>
+          <button onclick="hapusPelanggan('${d.id}')">
+            Hapus
+          </button>
+        </td>
+      </tr>
+    `;
+  });
 
 }
 
-function hapusPelanggan(index){
+async function hapusPelanggan(id) {
 
-if(confirm("Hapus pelanggan ini?")){
+  await deleteDoc(doc(db, "pelanggan", id));
 
-pelanggan.splice(index,1);
-
-renderPelanggan();
-
+  loadPelanggan();
 }
 
-}
+window.tambahPelanggan = tambahPelanggan;
+window.hapusPelanggan = hapusPelanggan;
 
-function cariPelanggan(){
-
-let keyword=document.getElementById("search").value.toLowerCase();
-
-let rows=document.querySelectorAll("#tbodyPelanggan tr");
-
-rows.forEach(row=>{
-
-row.style.display=
-row.innerText.toLowerCase().includes(keyword)
-? ""
-: "none";
-
-});
-
-}
+loadPelanggan();
 
 </script>
 
